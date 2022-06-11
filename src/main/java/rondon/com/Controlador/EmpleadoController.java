@@ -45,9 +45,9 @@ public class EmpleadoController {
 		return new ResponseEntity<Void>(HttpStatus.CREATED); // Http status code
 	}
 
-	@PutMapping("/editar/{EmpleadoId}") // Http Method PUT
-	public ResponseEntity<?> editar(@PathVariable Integer EmpleadoId, @RequestBody Empleado newEmpleado) {
-		Empleado EmpleadoDb = servicio.buscar(EmpleadoId);
+	@PutMapping("/editar/{empleadoId}") // Http Method PUT
+	public ResponseEntity<?> editar(@PathVariable Integer empleadoId, @RequestBody Empleado newEmpleado) {
+		Empleado EmpleadoDb = servicio.buscar(empleadoId);
 
 		if (EmpleadoDb != null) {
 			EmpleadoDb.setNombre(newEmpleado.getNombre());
@@ -57,6 +57,10 @@ public class EmpleadoController {
 			EmpleadoDb.setCorreo(newEmpleado.getCorreo());
 			EmpleadoDb.setTelefono(newEmpleado.getTelefono());
 			EmpleadoDb.setEstado(newEmpleado.getEstado());
+			EmpleadoDb.setTipdoc(newEmpleado.getTipdoc());
+			EmpleadoDb.setDepartamento(newEmpleado.getDepartamento());
+			EmpleadoDb.setProvincia(newEmpleado.getProvincia());
+			EmpleadoDb.setDistrito(newEmpleado.getDistrito());
 			
 			servicio.modificar(EmpleadoDb);
 			return new ResponseEntity<Void>(HttpStatus.OK); // Http status code
@@ -64,12 +68,12 @@ public class EmpleadoController {
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); // Http status code
 	}
 
-	@DeleteMapping("/borrar/{EmpleadoId}") // Http Method DELETE
-	public ResponseEntity<?> borrar(@PathVariable Integer EmpleadoId) {
-		Empleado EmpleadoDb = servicio.buscar(EmpleadoId);
+	@DeleteMapping("/borrar/{empleadoId}") // Http Method DELETE
+	public ResponseEntity<?> borrar(@PathVariable Integer empleadoId) {
+		Empleado EmpleadoDb = servicio.buscar(empleadoId);
 
 		if (EmpleadoDb != null) {
-			servicio.eliminar(EmpleadoId);
+			servicio.eliminar(empleadoId);
 			return new ResponseEntity<Void>(HttpStatus.OK); // Http status code
 		}
 		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND); // Http status code
