@@ -7,28 +7,27 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="departamento")
-public class Departamento {
+@Table(name="tip_doc")
+public class Tip_Doc {
 
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer iddepartamento;
-	private String detalle;
+	private Integer id_tipdoc;
+	private String nom_doc;
 	
 	
-	public Departamento(Integer iddepartamento, String detalle) {
+	public Tip_Doc(Integer id_tipdoc, String nom_doc) {
 		super();
-		this.iddepartamento = iddepartamento;
-		this.detalle = detalle;
+		this.id_tipdoc = id_tipdoc;
+		this.nom_doc = nom_doc;
 	}
 
 
-	public Departamento() {
+	public Tip_Doc() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
 	
 	
 	
