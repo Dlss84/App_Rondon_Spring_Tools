@@ -55,8 +55,9 @@ public class ArticuloController {
 			articuloDb.setPre_vent(newArticulo.getPre_vent());
 			articuloDb.setStock(newArticulo.getStock());
 			articuloDb.setFvenc(newArticulo.getFvenc());
-			articuloDb.setImagen(newArticulo.getImagen());
+			articuloDb.setImage(newArticulo.getImage());
 			articuloDb.setEstado(newArticulo.getEstado());
+			articuloDb.setProveedor(newArticulo.getProveedor());
 			
 			servicio.modificar(articuloDb);
 			return new ResponseEntity<Void>(HttpStatus.OK); // Http status code

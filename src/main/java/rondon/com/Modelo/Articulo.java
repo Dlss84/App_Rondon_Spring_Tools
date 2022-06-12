@@ -5,9 +5,12 @@ package rondon.com.Modelo;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,8 +27,16 @@ public class Articulo {
 	private Double pre_vent;
 	private Integer stock;
 	private Date fvenc;
-	private String imagen;
+	private String image;
 	private String estado;
+	@ManyToOne
+	@JoinColumn(name="id_prov",nullable=false,unique=true,
+	foreignKey=@ForeignKey(foreignKeyDefinition = 
+	"foreign key(id_prov) references proveedor")) 
+	private Proveedor proveedor;
+	
+	
+	
 	public Integer getId_art() {
 		return id_art;
 	}
@@ -62,11 +73,11 @@ public class Articulo {
 	public void setFvenc(Date fvenc) {
 		this.fvenc = fvenc;
 	}
-	public String getImagen() {
-		return imagen;
+	public String getImage() {
+		return image;
 	}
-	public void setImagen(String imagen) {
-		this.imagen = imagen;
+	public void setImage(String image) {
+		this.image = image;
 	}
 	public String getEstado() {
 		return estado;
@@ -74,12 +85,21 @@ public class Articulo {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
+	
+	
+	
+	public Proveedor getProveedor() {
+		return proveedor;
+	}
+	public void setProveedor(Proveedor proveedor) {
+		this.proveedor = proveedor;
+	}
 	public Articulo() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 	public Articulo(Integer id_art, String nombre, Double pre_com, Double pre_vent, Integer stock, Date fvenc,
-			String imagen, String estado) {
+			String image, String estado, Proveedor proveedor) {
 		super();
 		this.id_art = id_art;
 		this.nombre = nombre;
@@ -87,8 +107,9 @@ public class Articulo {
 		this.pre_vent = pre_vent;
 		this.stock = stock;
 		this.fvenc = fvenc;
-		this.imagen = imagen;
+		this.image = image;
 		this.estado = estado;
+		this.proveedor = proveedor;
 	}
 	
 	

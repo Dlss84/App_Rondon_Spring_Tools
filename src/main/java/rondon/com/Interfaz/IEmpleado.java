@@ -6,4 +6,5 @@ import rondon.com.Modelo.Empleado;
 
 public interface IEmpleado extends CrudRepository<Empleado,Integer>{
 
+	
 }

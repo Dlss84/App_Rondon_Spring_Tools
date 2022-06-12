@@ -23,7 +23,6 @@ public class Cita {
 	private Date fecha;
 	private String observacion;
 	private String estado;
-	private Double costo;
 	
 	@ManyToOne
 	@JoinColumn(name="id_emp",nullable=false,unique=true,
@@ -37,14 +36,13 @@ public class Cita {
 	"foreign key(id_mas) references mascota")) 
 	private Mascota mascota;
 
-	public Cita(Integer id_cita, Date fecha, String observacion, String estado, Double costo, Empleado empleado,
+	public Cita(Integer id_cita, Date fecha, String observacion, String estado, Empleado empleado,
 			Mascota mascota) {
 		super();
 		this.id_cita = id_cita;
 		this.fecha = fecha;
 		this.observacion = observacion;
 		this.estado = estado;
-		this.costo = costo;
 		this.empleado = empleado;
 		this.mascota = mascota;
 	}
@@ -86,13 +84,6 @@ public class Cita {
 		this.estado = estado;
 	}
 
-	public Double getCosto() {
-		return costo;
-	}
-
-	public void setCosto(Double costo) {
-		this.costo = costo;
-	}
 
 	public Empleado getEmpleado() {
 		return empleado;

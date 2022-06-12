@@ -51,13 +51,14 @@ public class ProveedorController {
 
 		if (ProveedorDb != null) {
 			ProveedorDb.setNombre(newProveedor.getNombre());
-			ProveedorDb.setPer_contact(newProveedor.getPer_contact());
-			ProveedorDb.setNum_doc(newProveedor.getNum_doc());
+			
+			ProveedorDb.setRuc(newProveedor.getRuc());
 			ProveedorDb.setTelefono(newProveedor.getTelefono());
 			ProveedorDb.setEmail(newProveedor.getEmail());
 			ProveedorDb.setDireccion(newProveedor.getDireccion());
 			ProveedorDb.setEstado(newProveedor.getEstado());
 			ProveedorDb.setTip_doc(newProveedor.getTip_doc());
+			ProveedorDb.setDistrito(newProveedor.getDistrito());
 			
 			servicio.modificar(ProveedorDb);
 			return new ResponseEntity<Void>(HttpStatus.OK); // Http status code

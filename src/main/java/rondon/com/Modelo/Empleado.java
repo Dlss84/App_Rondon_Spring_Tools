@@ -32,22 +32,11 @@ public class Empleado {
 	"foreign key(id_tipdoc) references tip_doc")) 
 	private Tip_Doc tipdoc;
 	
-	@ManyToOne
-	@JoinColumn(name="iddepartamento",nullable=false,unique=true,
-	foreignKey=@ForeignKey(foreignKeyDefinition = 
-	"foreign key(iddepartamento) references departamento")) 
-	private Departamento departamento;
 	
 	@ManyToOne
-	@JoinColumn(name="idprovincia",nullable=false,unique=true,
+	@JoinColumn(name="id_distrito",nullable=false,unique=true,
 	foreignKey=@ForeignKey(foreignKeyDefinition = 
-	"foreign key(idprovincia) references provincia"))
-	private Provincia provincia;
-	
-	@ManyToOne
-	@JoinColumn(name="iddistrito",nullable=false,unique=true,
-	foreignKey=@ForeignKey(foreignKeyDefinition = 
-	"foreign key(iddistrito) references distrito"))
+	"foreign key(id_distrito) references distrito"))
 	private Distrito distrito;
 
 	public Integer getId_emp() {
@@ -122,21 +111,7 @@ public class Empleado {
 		this.tipdoc = tipdoc;
 	}
 
-	public Departamento getDepartamento() {
-		return departamento;
-	}
 
-	public void setDepartamento(Departamento departamento) {
-		this.departamento = departamento;
-	}
-
-	public Provincia getProvincia() {
-		return provincia;
-	}
-
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
 
 	public Distrito getDistrito() {
 		return distrito;
@@ -147,7 +122,7 @@ public class Empleado {
 	}
 
 	public Empleado(Integer id_emp, String nombre, String apell, Integer num_doc, String direccion, String correo,
-			Integer telefono, String estado, Tip_Doc tipdoc, Departamento departamento, Provincia provincia,
+			Integer telefono, String estado, Tip_Doc tipdoc,
 			Distrito distrito) {
 		super();
 		this.id_emp = id_emp;
@@ -159,8 +134,7 @@ public class Empleado {
 		this.telefono = telefono;
 		this.estado = estado;
 		this.tipdoc = tipdoc;
-		this.departamento = departamento;
-		this.provincia = provincia;
+
 		this.distrito = distrito;
 	}
 

@@ -55,7 +55,7 @@ public class MascotaController {
 			MascotaDb.setEdad(newMascota.getEdad());
 			MascotaDb.setObservacion(newMascota.getObservacion());
 			MascotaDb.setEstado(newMascota.getEstado());
-			MascotaDb.setId_usu(newMascota.getId_usu());
+			MascotaDb.setUsuario(newMascota.getUsuario());
 			
 			servicio.modificar(MascotaDb);
 			return new ResponseEntity<Void>(HttpStatus.OK); // Http status code

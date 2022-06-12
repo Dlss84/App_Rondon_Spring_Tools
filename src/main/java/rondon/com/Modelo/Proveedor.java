@@ -19,8 +19,7 @@ public class Proveedor {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer id_prov;
 	private String nombre;
-	private String per_contact;
-	private Integer num_doc;
+	private String ruc;
 	private Integer telefono;
 	private String email;
 	private String direccion;
@@ -31,19 +30,29 @@ public class Proveedor {
 	foreignKey=@ForeignKey(foreignKeyDefinition = 
 	"foreign key(id_tipdoc) references tip_doc")) 
 	private Tip_Doc tip_doc;
+	
+	@ManyToOne
+	@JoinColumn(name="id_distrito",nullable=false,unique=true,
+	foreignKey=@ForeignKey(foreignKeyDefinition = 
+	"foreign key(id_distrito) references distrito")) 
+	private Distrito distrito;
+	
+	
 
-	public Proveedor(Integer id_prov, String nombre, String per_contact, Integer num_doc, Integer telefono,
-			String email, String direccion, String estado, Tip_Doc tip_doc) {
+	
+
+	public Proveedor(Integer id_prov, String nombre, String ruc, Integer telefono, String email, String direccion,
+			String estado, Tip_Doc tip_doc, Distrito distrito) {
 		super();
 		this.id_prov = id_prov;
 		this.nombre = nombre;
-		this.per_contact = per_contact;
-		this.num_doc = num_doc;
+		this.ruc = ruc;
 		this.telefono = telefono;
 		this.email = email;
 		this.direccion = direccion;
 		this.estado = estado;
 		this.tip_doc = tip_doc;
+		this.distrito = distrito;
 	}
 
 	public Proveedor() {
@@ -67,20 +76,12 @@ public class Proveedor {
 		this.nombre = nombre;
 	}
 
-	public String getPer_contact() {
-		return per_contact;
+	public String getRuc() {
+		return ruc;
 	}
 
-	public void setPer_contact(String per_contact) {
-		this.per_contact = per_contact;
-	}
-
-	public Integer getNum_doc() {
-		return num_doc;
-	}
-
-	public void setNum_doc(Integer num_doc) {
-		this.num_doc = num_doc;
+	public void setRuc(String ruc) {
+		this.ruc = ruc;
 	}
 
 	public Integer getTelefono() {
@@ -122,6 +123,16 @@ public class Proveedor {
 	public void setTip_doc(Tip_Doc tip_doc) {
 		this.tip_doc = tip_doc;
 	}
+
+	public Distrito getDistrito() {
+		return distrito;
+	}
+
+	public void setDistrito(Distrito distrito) {
+		this.distrito = distrito;
+	}
+
+	
 
 	
 }

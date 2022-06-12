@@ -17,21 +17,16 @@ public class Distrito {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private Integer iddistrito;
+	private Integer id_distrito;
 	
-	@ManyToOne
-	@JoinColumn(name="idprovincia",nullable=false,unique=true,
-	foreignKey=@ForeignKey(foreignKeyDefinition = 
-	"foreign key(idprovincia) references provincia"))
-	private Provincia provincia;
-	
-	private String detalle;
 
-	public Distrito(Integer iddistrito, Provincia provincia, String detalle) {
+	
+	private String nombre;
+
+	public Distrito(Integer id_distrito, String nombre) {
 		super();
-		this.iddistrito = iddistrito;
-		this.provincia = provincia;
-		this.detalle = detalle;
+		this.id_distrito = id_distrito;
+		this.nombre = nombre;
 	}
 
 	public Distrito() {

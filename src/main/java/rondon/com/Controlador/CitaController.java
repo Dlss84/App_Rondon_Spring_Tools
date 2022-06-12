@@ -55,7 +55,8 @@ public class CitaController {
 			CitaDb.setFecha(newCita.getFecha());
 			CitaDb.setObservacion(newCita.getObservacion());
 			CitaDb.setEstado(newCita.getEstado());
-			CitaDb.setCosto(newCita.getCosto());
+			CitaDb.setEmpleado(newCita.getEmpleado());
+			CitaDb.setMascota(newCita.getMascota());
 			
 			
 			servicio.modificar(CitaDb);

@@ -3,9 +3,11 @@ package rondon.com.Modelo;
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -19,11 +21,12 @@ public class Mascota {
 	private Integer edad;
 	private String observacion;
 	private String estado;
-	/*@ManyToOne
-	@JoinColumn(name="id_usu",nullable=false,unique=true,
+	
+	@ManyToOne
+	@JoinColumn(name="id_usuario",nullable=false,unique=true,
 	foreignKey=@ForeignKey(foreignKeyDefinition = 
-	"foreign key(id_usu) references usuario")) */
-	private Integer id_usu;
+	"foreign key(id_usuario) references usuario")) 
+	private Usuario usuario;
 	
 	public Integer getId_mas() {
 		return id_mas;
@@ -55,20 +58,21 @@ public class Mascota {
 	public void setEstado(String estado) {
 		this.estado = estado;
 	}
-	public Integer getId_usu() {
-		return id_usu;
+		
+	public Usuario getUsuario() {
+		return usuario;
 	}
-	public void setId_usu(Integer id_usu) {
-		this.id_usu = id_usu;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
-	public Mascota(Integer id_mas, String nombre, Integer edad, String observacion, String estado, Integer id_usu) {
+	public Mascota(Integer id_mas, String nombre, Integer edad, String observacion, String estado, Usuario usuario) {
 		super();
 		this.id_mas = id_mas;
 		this.nombre = nombre;
 		this.edad = edad;
 		this.observacion = observacion;
 		this.estado = estado;
-		this.id_usu = id_usu;
+		this.usuario = usuario;
 	}
 	public Mascota() {
 		super();

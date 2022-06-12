@@ -58,8 +58,6 @@ public class EmpleadoController {
 			EmpleadoDb.setTelefono(newEmpleado.getTelefono());
 			EmpleadoDb.setEstado(newEmpleado.getEstado());
 			EmpleadoDb.setTipdoc(newEmpleado.getTipdoc());
-			EmpleadoDb.setDepartamento(newEmpleado.getDepartamento());
-			EmpleadoDb.setProvincia(newEmpleado.getProvincia());
 			EmpleadoDb.setDistrito(newEmpleado.getDistrito());
 			
 			servicio.modificar(EmpleadoDb);
